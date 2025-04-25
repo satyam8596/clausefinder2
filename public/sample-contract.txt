@@ -1,0 +1,52 @@
+CONSULTING AGREEMENT
+
+This Consulting Agreement (the "Agreement") is made and entered into as of January 1, 2023 (the "Effective Date"), by and between ABC Company, Inc., a Delaware corporation ("Company"), and XYZ Consulting, LLC, a California limited liability company ("Consultant").
+
+1. SERVICES. Consultant shall provide the services described in Exhibit A (the "Services") to Company. Consultant shall perform the Services in a professional manner and in accordance with industry standards.
+
+2. COMPENSATION. Company shall pay Consultant the fees set forth in Exhibit A for the Services. Consultant shall invoice Company monthly, and Company shall pay such invoices within thirty (30) days of receipt.
+
+3. TERM AND TERMINATION. This Agreement shall commence on the Effective Date and continue for a period of one (1) year, unless earlier terminated as provided herein. Either party may terminate this Agreement upon thirty (30) days' prior written notice to the other party. Company may terminate this Agreement immediately for Consultant's material breach of this Agreement.
+
+4. CONFIDENTIALITY. Consultant acknowledges that during the performance of the Services, Consultant may have access to certain confidential and proprietary information of Company. Consultant agrees to maintain the confidentiality of such information and not to disclose it to any third party without Company's prior written consent.
+
+5. INTELLECTUAL PROPERTY. All deliverables, work product, and other materials created or developed by Consultant in connection with the Services (collectively, the "Work Product") shall be the sole and exclusive property of Company. Consultant hereby assigns all right, title, and interest in and to the Work Product to Company.
+
+6. INDEPENDENT CONTRACTOR. Consultant is an independent contractor and not an employee of Company. Consultant shall be responsible for all taxes, insurance, and other obligations related to Consultant's business.
+
+7. LIMITATION OF LIABILITY. NEITHER PARTY SHALL BE LIABLE TO THE OTHER PARTY FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, EXEMPLARY OR PUNITIVE DAMAGES ARISING OUT OF THIS AGREEMENT, EVEN IF SUCH PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+8. INDEMNIFICATION. Consultant shall indemnify, defend, and hold harmless Company from and against any and all claims, damages, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or related to Consultant's performance of the Services or breach of this Agreement.
+
+9. GOVERNING LAW. This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware, without giving effect to any choice of law or conflict of law provisions.
+
+10. ENTIRE AGREEMENT. This Agreement constitutes the entire agreement between the parties with respect to the subject matter hereof and supersedes all prior and contemporaneous agreements and understandings, whether oral or written.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+COMPANY:
+ABC Company, Inc.
+
+By: _________________________
+Name: John Smith
+Title: CEO
+
+CONSULTANT:
+XYZ Consulting, LLC
+
+By: _________________________
+Name: Jane Doe
+Title: Managing Partner
+
+EXHIBIT A
+SERVICES AND COMPENSATION
+
+Services:
+1. Strategic business consulting
+2. Market analysis
+3. Competitive research
+4. Product development guidance
+5. Monthly progress reports
+
+Compensation:
+Consultant shall be paid at a rate of $200 per hour, not to exceed $10,000 per month without prior written approval from Company. 
