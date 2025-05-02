@@ -64,6 +64,8 @@ export async function POST(request: NextRequest) {
     if (isBase64) {
       fileType = text.split(';')[0].split(':')[1] || 'unknown';
       console.log(`API: Detected binary data of type: ${fileType}`);
+      
+      // DOCX files should now be handled client-side, so we don't need special handling here
     }
     
     // Validate filename format
@@ -101,6 +103,7 @@ export async function POST(request: NextRequest) {
     if (isBase64) {
       prompt = `
 You are a legal document analyzer. Analyze the following contract image or PDF and provide a detailed report.
+${fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ? 'NOTE: This is a DOCX file being sent with a PDF MIME type for compatibility. Please analyze the content as a DOCX file.' : ''}
 Your analysis should be well-structured in markdown format with the following sections:
 
 # Contract Analysis
@@ -220,9 +223,11 @@ ${text}
       if (isBase64) {
         // For base64 encoded files (images, PDFs)
         // We need to parse the base64 data
+        const base64Data = text.split(',')[1]; // Remove the data URI prefix
+        
         const fileData = {
           inlineData: {
-            data: text.split(',')[1], // Remove the data URI prefix
+            data: base64Data,
             mimeType: fileType
           }
         };
@@ -312,6 +317,10 @@ ${text}
       } else if (error.message?.includes('FAILED_PRECONDITION')) {
         status = 412;
         message = 'Precondition failed for AI service request.';
+      } else if (error.message?.includes('mimeType') && error.message?.includes('not supported') && 
+                 fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+        status = 400;
+        message = 'DOCX file format could not be processed. Try converting to PDF and uploading again.';
       }
       
       return NextResponse.json({ message }, { status });

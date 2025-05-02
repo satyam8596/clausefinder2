@@ -7,6 +7,24 @@ import UploadBox from '@/components/common/UploadBox';
 import { analyzeContract } from '@/utils/gemini';
 import { Clause } from '@/utils/gemini';
 
+// Helper function to extract plain text from DOCX files
+// This is a simple approach that treats DOCX XML as text and extracts content
+const extractTextFromDocx = (content: string): string => {
+  try {
+    // Look for text content between XML tags
+    const textMatches = content.match(/>([^<>]+)</g) || [];
+    const extractedText = textMatches
+      .map(match => match.replace(/^>|<$/g, ''))
+      .join(' ')
+      .replace(/\s+/g, ' ');
+    
+    return extractedText || 'Failed to extract content from DOCX file';
+  } catch (error) {
+    console.error('Error extracting text from DOCX:', error);
+    return 'Error processing DOCX file';
+  }
+};
+
 // Analysis stages and their respective percentages
 const ANALYSIS_STAGES = {
   EXTRACTING: { name: 'extracting', percentage: 20, text: 'Extracting document content...' },
@@ -86,17 +104,25 @@ export default function UploadPage() {
       // Simulate progress while we wait for the analysis
       simulateProgress();
       
+      // Get file content based on type
       let fileContent;
-      let isTextFile = file.type === 'text/plain' || 
-                      file.type === 'application/msword' || 
-                      file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+      let isTextFile = file.type === 'text/plain';
+      let isDocxFile = file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
       
-      // For text files, use text extraction
+      // Only for plain text files, use direct text extraction
       if (isTextFile) {
         fileContent = await file.text();
         console.log('File text loaded, length:', fileContent.length);
+      } else if (isDocxFile) {
+        // For DOCX files, try a basic text extraction from the raw data
+        console.log('DOCX file detected, using basic text extraction');
+        // Get raw text content
+        const rawContent = await file.text();
+        // Extract readable text
+        fileContent = extractTextFromDocx(rawContent);
+        console.log('DOCX text extracted, length:', fileContent.length);
       } else {
-        // For binary files (PDFs, images), read as base64
+        // For other binary files (PDFs, images), read as base64
         const reader = new FileReader();
         fileContent = await new Promise((resolve, reject) => {
           reader.onload = () => resolve(reader.result);
